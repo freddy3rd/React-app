@@ -1,11 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import mobileHeroImage from '../assets/illustration-sign-up-mobile.svg'
 import desktopHeroImage from '../assets/illustration-sign-up-desktop.svg'
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import Form from "./form";
 
 export default function Content(){
+
     return(
         <>
+         <div className="container grid justify-center items-center bg-white relative  h-100 max-w-[800px] md:h-[max-content] sm:flex flex-row-reverse md:p-4 sm:rounded-lg sm:shadow-xl">
                 <picture className="self-start sm:self-center sm:px-4 md:px-2 w-100" >
                     <source media="(min-width: 500px" srcSet={desktopHeroImage}/>
                     <img src={mobileHeroImage} className=" w-[100%]" alt="" />
@@ -26,13 +29,10 @@ export default function Content(){
                             <BsFillCheckCircleFill className=" text-[#ff6257] mt-1 mr-2"/>   
                             And much more!
                             </li>
-                            </ul>
-                       <div className="grid mt-12">
-                            <label className="font-bold text-[#242742]" htmlFor="#email">Email Address</label>
-                            <input type="text" className="rounded-lg p-4 mt-3 outline-slate-500 border-2 border-slate-400"  placeholder="email@company.com" id="email" />
-                            <button className="py-3 mt-3 bg-[#242742] text-white rounded-lg font-semibold hover:bg-[#ff6257]">Subscribe to monthly newsletter</button>
-                       </div>
+                        </ul>
+                        <Form/>
                     </div>
+                </div>
         </>
     )
 }
