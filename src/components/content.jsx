@@ -4,14 +4,17 @@ import desktopHeroImage from '../assets/desktop.svg'
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import Form from "./form";
 
-export default function Content({value}){
+export default function Content({userEmail}){
     const [getEmail,setEmail] = useState("")
 
     function _getEmail(getEmail) {
         setEmail(getEmail)
-        value(getEmail)
-        // console.log(getEmail);
-      }
+    }
+
+    useEffect(()=>{
+        userEmail(getEmail)
+    },[getEmail])
+    
     return(
         <>
          <div className="container grid justify-center items-center bg-white relative h-100 max-w-[850px] md:h-[max-content] sm:flex flex-row-reverse md:p-4 sm:rounded-lg sm:shadow-xl">
@@ -36,7 +39,7 @@ export default function Content({value}){
                             And much more!
                             </li>
                         </ul>
-                        <Form onSubmit = {_getEmail}/>
+                        <Form  onSubmit={_getEmail} />
                     </div>
                 </div>
         </>
